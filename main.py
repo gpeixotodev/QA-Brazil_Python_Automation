@@ -9,6 +9,7 @@ class TestUrbanRoutes:
             print('Conectado ao servidor Urban Routes')
         else:
             print('Não foi possível conectar ao Urban Routes. Verifique se o servidor está ligado e ainda em execução.')
+
     def test_set_route(self):
         # Adicionar em S8
         print("função criada para definir a rota")
@@ -40,10 +41,10 @@ class TestUrbanRoutes:
         pass
 
     def test_order_2_ice_creams(self):
-        nunmbers_of_ice_creams = 2
-        for count in range(nunmbers_of_ice_creams):
-        # Adicionar em S8
-        print("função criada para adicionar a quantidade de sorvetes")
+        numbers_of_ice_creams = 2
+        for count in range(numbers_of_ice_creams):
+            # Adicionar em S8
+            print("função criada para adicionar a quantidade de sorvetes")
         pass
 
     def test_car_search_model_appears(self):
