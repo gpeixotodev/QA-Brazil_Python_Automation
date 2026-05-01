@@ -9,11 +9,16 @@ class UrbanRoutesPage:
     from_field = (By.ID, 'from')
     to_field = (By.ID, 'to')
 
+    # Fluxo de chamada de taxi
+    taxi_option = (By.XPATH, '//button[contains(text(), "Chamar")]')
+    comfort_icon = (By.XPATH, '//img[contains(@src, "kids")]')
+    comfort_active = (By.XPATH,'//div[contains(@class, "active") and .//img[contains(@src, "kids")]]')
+
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebDriverWait(driver, 10)
 
-    # Métodos COR POM
+    # Métodos base (POM)
 
     def _find(self, locator):
         return self.wait.until(EC.visibility_of_element_located(locator))
@@ -43,3 +48,22 @@ class UrbanRoutesPage:
 
     def get_to_location(self):
         return self._get_value(self.to_field)
+
+    # Chamar taxi
+
+    def click_taxi_option(self):
+        self._click(self.taxi_option)
+
+    # ✅ nome corrigido (padronizado com seu teste)
+    def click_comfort_icon(self):
+        self._click(self.comfort_icon)
+
+    # ✅ nome corrigido (padrão booleano)
+    def is_comfort_active(self):
+        try:
+            active_button = self.wait.until(
+                EC.visibility_of_element_located(self.comfort_active)
+            )
+            return "active" in active_button.get_attribute("class")
+        except:
+            return False
